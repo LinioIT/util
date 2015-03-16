@@ -17,11 +17,20 @@ class JsonTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
+     * @expectedException \InvalidArgumentException
+     * @expectedExceptionMessage Resource types cannot be encoded
+     */
+    public function testIsHandlingInvalidDataForEncode()
+    {
+        Json::encode(fopen('php://stdin', 'r'));
+    }
+
+    /**
      * @expectedException \LogicException
      */
     public function testIsHandlingEncodeFailure()
     {
-        Json::encode(fopen('php://stdin', 'r'));
+        Json::encode("\xB1\x31");
     }
 
     /**

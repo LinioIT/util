@@ -11,9 +11,13 @@ class Json
      */
     public static function encode($data)
     {
+        if (is_resource($data)) {
+            throw new \InvalidArgumentException('Resource types cannot be encoded');
+        }
+
         $result = json_encode($data);
 
-        if (!$result) {
+        if (json_last_error() !== JSON_ERROR_NONE) {
             throw new \LogicException(self::getLastJsonError());
         }
 
