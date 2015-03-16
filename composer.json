@@ -1,0 +1,21 @@
+{
+    "name": "linio/util",
+    "description": "Generic component that provides many helper classes, such as JSON parsing, conversion tools, data structures, etc.",
+    "keywords": ["linio", "util"],
+    "type": "library",
+    "license": "BSD-3-Clause",
+    "require": {
+        "php": "~5.4"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "4.5.*"
+    },
+    "config": {
+        "bin-dir": "bin"
+    },
+    "autoload": {
+        "psr-4": {
+            "Linio\\Component\\Util\\": "src"
+        }
+    }
+}
