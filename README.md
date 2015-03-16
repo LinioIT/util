@@ -1,5 +1,6 @@
 Linio Util
 ==========
+[![Latest Stable Version](https://poser.pugx.org/linio/util/v/stable.svg)](https://packagist.org/packages/linio/util) [![License](https://poser.pugx.org/linio/util/license.svg)](https://packagist.org/packages/linio/util) [![Build Status](https://secure.travis-ci.org/LinioIT/util.png)](http://travis-ci.org/LinioIT/util) [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/LinioIT/util/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/LinioIT/util/?branch=master)
 
 Linio Util is a generic component that provides many helper classes, such as
 JSON parsing, conversion tools, data structures, etc.
