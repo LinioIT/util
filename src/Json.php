@@ -26,7 +26,7 @@ class Json
 
     /**
      * @param mixed $data
-     * @return string
+     * @return mixed
      * @throws \LogicException If decoding fails
      */
     public static function decode($data)
