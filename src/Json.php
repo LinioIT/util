@@ -6,7 +6,9 @@ class Json
 {
     /**
      * @param mixed $data
+     *
      * @return string
+     *
      * @throws \LogicException If encoding fails
      */
     public static function encode($data)
@@ -26,7 +28,9 @@ class Json
 
     /**
      * @param mixed $data
+     *
      * @return mixed
+     *
      * @throws \LogicException If decoding fails
      */
     public static function decode($data)

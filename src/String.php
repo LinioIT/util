@@ -6,6 +6,7 @@ class String
 {
     /**
      * @param string $string
+     *
      * @return string
      */
     public static function pascalize($string)
@@ -15,6 +16,7 @@ class String
 
     /**
      * @param string $string
+     *
      * @return string
      */
     public static function camelize($string)
