@@ -46,4 +46,22 @@ class JsonTest extends \PHPUnit_Framework_TestCase
         $decodedData = Json::decode('{}');
         $this->assertEquals([], $decodedData);
     }
+
+    public function testIsDecodingNullData()
+    {
+        $decodedData = Json::decode(null);
+        $this->assertNull($decodedData);
+    }
+
+    public function testIsDecodingEmptyData()
+    {
+        $decodedData = Json::decode('');
+        $this->assertNull($decodedData);
+    }
+
+    public function testIsDecodingFalse()
+    {
+        $decodedData = Json::decode(false);
+        $this->assertNull($decodedData);
+    }
 }

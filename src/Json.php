@@ -35,6 +35,10 @@ class Json
      */
     public static function decode($data)
     {
+        if (empty($data)) {
+            return;
+        }
+
         $result = json_decode($data, true);
 
         if (json_last_error() !== JSON_ERROR_NONE) {
