@@ -1,6 +1,10 @@
 <?php
+declare(strict_types=1);
 
 namespace Linio\Component\Util;
+
+use InvalidArgumentException;
+use LogicException;
 
 class Json
 {
@@ -9,18 +13,18 @@ class Json
      *
      * @return string
      *
-     * @throws \LogicException If encoding fails
+     * @throws LogicException If encoding fails
      */
-    public static function encode($data)
+    public static function encode($data): string
     {
         if (is_resource($data)) {
-            throw new \InvalidArgumentException('Resource types cannot be encoded');
+            throw new InvalidArgumentException('Resource types cannot be encoded');
         }
 
         $result = json_encode($data);
 
         if (json_last_error() !== JSON_ERROR_NONE) {
-            throw new \LogicException(self::getLastJsonError());
+            throw new LogicException(self::getLastJsonError());
         }
 
         return $result;
@@ -31,7 +35,7 @@ class Json
      *
      * @return mixed
      *
-     * @throws \LogicException If decoding fails
+     * @throws LogicException If decoding fails
      */
     public static function decode($data)
     {
@@ -42,16 +46,13 @@ class Json
         $result = json_decode($data, true);
 
         if (json_last_error() !== JSON_ERROR_NONE) {
-            throw new \LogicException(self::getLastJsonError());
+            throw new LogicException(self::getLastJsonError());
         }
 
         return $result;
     }
 
-    /**
-     * @return string
-     */
-    public static function getLastJsonError()
+    public static function getLastJsonError(): string
     {
         switch (json_last_error()) {
             case JSON_ERROR_DEPTH:
