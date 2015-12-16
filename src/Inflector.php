@@ -5,13 +5,13 @@ namespace Linio\Component\Util;
 
 class Inflector
 {
-    public static function pascalize(string $string): string
+    public static function pascalize(string $string, string $separator = '_-'): string
     {
-        return ucfirst(str_replace(' ', '', ucwords(strtr($string, '_-', '  '))));
+        return ucfirst(str_replace(' ', '', ucwords(strtr($string, $separator, '  '))));
     }
 
-    public static function camelize(string $string): string
+    public static function camelize(string $string, string $separator = '_-'): string
     {
-        return lcfirst(self::pascalize($string));
+        return lcfirst(self::pascalize($string, $separator));
     }
 }
