@@ -2,7 +2,7 @@
 
 namespace Linio\Component\Util;
 
-class String
+class Inflector
 {
     /**
      * @param string $string
