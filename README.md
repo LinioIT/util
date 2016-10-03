@@ -41,7 +41,7 @@ Json::decode('{"foo":"bar"}');
 
 ```
 
-String
+Inflector
 ------
 
 The library includes a small string manipulation library, with common operations
@@ -50,7 +50,7 @@ in string datatypes.
 ```php
 <?php
 
-String::pascalize('my-test'); // MyTest
-String::camelize('my-test'); // myTest
+Inflector::pascalize('my-test'); // MyTest
+Inflector::camelize('my-test'); // myTest
 
 ```
