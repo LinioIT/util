@@ -10,12 +10,8 @@ Install
 
 The recommended way to install Linio Util is [through composer](http://getcomposer.org).
 
-```JSON
-{
-    "require": {
-        "linio/util": "dev-master"
-    }
-}
+```bash
+$ composer install linio/util
 ```
 
 Tests
@@ -24,8 +20,10 @@ Tests
 To run the test suite, you need install the dependencies via composer, then
 run PHPUnit.
 
-    $ composer install
-    $ phpunit
+```bash
+$ composer install
+$ vendor/bin/phpunit
+```
 
 JSON
 ----
