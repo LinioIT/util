@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Linio\Component\Util;
@@ -11,9 +12,9 @@ class Json
     /**
      * @param mixed $data
      *
-     * @return string
-     *
      * @throws LogicException If encoding fails
+     *
+     * @return string
      */
     public static function encode($data): string
     {
@@ -33,9 +34,9 @@ class Json
     /**
      * @param mixed $data
      *
-     * @return mixed
-     *
      * @throws LogicException If decoding fails
+     *
+     * @return mixed
      */
     public static function decode($data)
     {
