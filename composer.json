@@ -13,7 +13,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Linio\\Component\\Util\\": "src"
+            "Linio\\Component\\Util\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Linio\\Component\\Util\\": "tests/"
         }
     }
 }
