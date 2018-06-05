@@ -21,7 +21,7 @@ class JsonTest extends TestCase
     }
 
     /**
-     * @expectedException InvalidArgumentException
+     * @expectedException \InvalidArgumentException
      * @expectedExceptionMessage Resource types cannot be encoded
      */
     public function testIsHandlingInvalidDataForEncode()
@@ -30,7 +30,7 @@ class JsonTest extends TestCase
     }
 
     /**
-     * @expectedException LogicException
+     * @expectedException \LogicException
      * @expectedExceptionMessage Invalid JSON: Malformed UTF-8 characters, possibly incorrectly encoded
      */
     public function testIsHandlingEncodeFailure()
@@ -39,7 +39,7 @@ class JsonTest extends TestCase
     }
 
     /**
-     * @expectedException LogicException
+     * @expectedException \LogicException
      * @expectedExceptionMessage Invalid JSON: Syntax error on '{"foo:"bar"}'
      */
     public function testIsHandlingDecodeFailure()
@@ -48,7 +48,7 @@ class JsonTest extends TestCase
     }
 
     /**
-     * @expectedException LogicException
+     * @expectedException \LogicException
      * @expectedExceptionMessage Invalid JSON: Syntax error on '{{"10":"foobar","11":"foobar","12":"foobar","13":"foobar","14":"foobar","15":"foobar","16":"foobar","17":"foobar","18":"foobar","19":"foobar","20":"foobar","21":"foobar","22":"foobar","23":"foobar","24":"foobar","25":"foobar","26":"foobar","27":"foobar","... (truncated)'
      */
     public function testIsHandlingDecodeFailureWithLargePayload()

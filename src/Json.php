@@ -24,7 +24,7 @@ class Json
 
         $result = json_encode($data);
 
-        if (json_last_error() !== JSON_ERROR_NONE) {
+        if (JSON_ERROR_NONE !== json_last_error()) {
             throw new LogicException(self::getLastJsonError());
         }
 
@@ -46,7 +46,7 @@ class Json
 
         $result = json_decode($data, true);
 
-        if (json_last_error() !== JSON_ERROR_NONE) {
+        if (JSON_ERROR_NONE !== json_last_error()) {
             $lastError = self::getLastJsonError();
             $payload = substr($data, 0, 255);
 
