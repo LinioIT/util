@@ -47,7 +47,14 @@ class Json
         $result = json_decode($data, true);
 
         if (json_last_error() !== JSON_ERROR_NONE) {
-            throw new LogicException(self::getLastJsonError());
+            $lastError = self::getLastJsonError();
+            $payload = substr($data, 0, 255);
+
+            if (strlen($data) > 255) {
+                $payload .= '... (truncated)';
+            }
+
+            throw new LogicException(sprintf('%s on \'%s\'', $lastError, $payload));
         }
 
         return $result;
