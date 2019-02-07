@@ -10,11 +10,7 @@ use LogicException;
 class Json
 {
     /**
-     * @param mixed $data
-     *
      * @throws LogicException If encoding fails
-     *
-     * @return string
      */
     public static function encode($data): string
     {
@@ -32,11 +28,7 @@ class Json
     }
 
     /**
-     * @param mixed $data
-     *
      * @throws LogicException If decoding fails
-     *
-     * @return mixed
      */
     public static function decode($data)
     {
