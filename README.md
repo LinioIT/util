@@ -11,7 +11,7 @@ Install
 The recommended way to install Linio Util is [through composer](http://getcomposer.org).
 
 ```bash
-$ composer install linio/util
+$ composer require linio/util
 ```
 
 Tests
@@ -28,7 +28,7 @@ $ vendor/bin/phpunit
 JSON
 ----
 
-The library includes a JSON wrapper around `json_encode` and `json_encode`,
+The library includes a JSON wrapper around `json_encode` and `json_decode`,
 allowing you to handle parsing errors with exceptions.
 
 ```php
