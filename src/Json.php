@@ -10,6 +10,8 @@ use LogicException;
 class Json
 {
     /**
+     * @param mixed $data
+     *
      * @throws LogicException If encoding fails
      */
     public static function encode($data): string
@@ -20,7 +22,7 @@ class Json
 
         $result = json_encode($data);
 
-        if (json_last_error() !== JSON_ERROR_NONE) {
+        if ($result === false || json_last_error() !== JSON_ERROR_NONE) {
             throw new LogicException(self::getLastJsonError());
         }
 
@@ -28,7 +30,11 @@ class Json
     }
 
     /**
+     * @param mixed $data
+     *
      * @throws LogicException If decoding fails
+     *
+     * @return mixed
      */
     public static function decode($data)
     {

@@ -1,8 +1,8 @@
 language: php
 
 php:
-  - 7.0
-  
+  - 7.4
+
 cache:
   directories:
     - vendor
@@ -11,8 +11,7 @@ install:
   - travis_retry composer install --no-interaction --prefer-source
 
 script:
-  - vendor/bin/php-cs-fixer fix --dry-run -v
-  - vendor/bin/phpunit --verbose
+  - composer test
 
 matrix:
   fast_finish: true

@@ -1,24 +1,36 @@
 {
-    "name": "linio/util",
-    "description": "Generic component that provides many helper classes, such as JSON parsing, conversion tools, data structures, etc.",
-    "keywords": ["linio", "util"],
-    "type": "library",
-    "license": "BSD-3-Clause",
-    "require": {
-        "php": ">=7.1"
-    },
-    "require-dev": {
-        "phpunit/phpunit": ">=5.0",
-        "friendsofphp/php-cs-fixer": "^2.4"
-    },
-    "autoload": {
-        "psr-4": {
-            "Linio\\Component\\Util\\": "src/"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "Linio\\Component\\Util\\": "tests/"
-        }
+  "name": "linio/util",
+  "description": "Generic component that provides many helper classes, such as JSON parsing, conversion tools, data structures, etc.",
+  "keywords": ["linio", "util"],
+  "type": "library",
+  "license": "BSD-3-Clause",
+  "require": {
+    "php": "^7.4"
+  },
+  "require-dev": {
+    "friendsofphp/php-cs-fixer": "^2.16",
+    "phpstan/phpstan": "^0.12",
+    "phpunit/phpunit": "^8.5"
+  },
+  "autoload": {
+    "psr-4": {
+      "Linio\\Component\\Util\\": "src/"
     }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Linio\\Component\\Util\\": "tests/"
+    }
+  },
+  "scripts": {
+    "lint": "php-cs-fixer fix --verbose --show-progress=estimating",
+    "lint:check": "php-cs-fixer fix --dry-run --verbose --show-progress=estimating",
+    "phpunit": "phpunit",
+    "phpstan": "phpstan analyze",
+    "test": [
+      "@lint:check",
+      "@phpunit",
+      "@phpstan"
+    ]
+  }
 }
