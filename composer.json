@@ -5,10 +5,10 @@
   "type": "library",
   "license": "BSD-3-Clause",
   "require": {
-    "php": "^7.4"
+    "php": "^7.4 || ^8.0"
   },
   "require-dev": {
-    "friendsofphp/php-cs-fixer": "^2.16",
+    "friendsofphp/php-cs-fixer": "^3.6",
     "phpstan/phpstan": "^0.12",
     "phpunit/phpunit": "^8.5"
   },
@@ -23,8 +23,8 @@
     }
   },
   "scripts": {
-    "lint": "php-cs-fixer fix --verbose --show-progress=estimating",
-    "lint:check": "php-cs-fixer fix --dry-run --verbose --show-progress=estimating",
+    "lint": "php-cs-fixer fix --verbose --show-progress=dots",
+    "lint:check": "php-cs-fixer fix --dry-run --verbose --show-progress=dots",
     "phpunit": "phpunit",
     "phpstan": "phpstan analyze",
     "test": [
