@@ -2,18 +2,8 @@ name: Code Quality
 
 on:
   push:
-    branches: [ master ]
+    branches: [master]
   pull_request: ~
-
-env:
-  PHP_VERSION: 7.4
-  APPLICATION_NAME: antifraud
-  GCP_PROJECT_ID: liniopay-sandbox
-  GCP_REGION: us-east4
-  PR_NUMBER: ${{ github.event.number }}
-  DATABASE_USER_API_USERNAME: liniopay_antifraud_api
-  NEW_RELIC_LICENSE_KEY: ${{ secrets.NEW_RELIC_LICENSE_KEY }}
-  NEW_RELIC_APP_NAME: ${{ secrets.NEW_RELIC_APP_NAME }}
 
 jobs:
   test-php-74:
@@ -21,8 +11,8 @@ jobs:
     runs-on: [ubuntu-latest]
     steps:
       - name: Checkout
-        uses: actions/checkout@v2      
-      
+        uses: actions/checkout@v2
+
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
@@ -37,7 +27,7 @@ jobs:
 
       - name: Lint
         run: composer lint:check
-      
+
       - name: PHP Static Analysis
         run: composer phpstan
 
@@ -49,8 +39,8 @@ jobs:
     runs-on: [ubuntu-latest]
     steps:
       - name: Checkout
-        uses: actions/checkout@v2      
-      
+        uses: actions/checkout@v2
+
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
@@ -65,7 +55,7 @@ jobs:
 
       - name: Lint
         run: composer lint:check
-      
+
       - name: PHP Static Analysis
         run: composer phpstan
 
