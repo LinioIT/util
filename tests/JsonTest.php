@@ -6,6 +6,9 @@ namespace Linio\Component\Util;
 
 use PHPUnit\Framework\TestCase;
 
+/**
+ * @covers \Json::
+ */
 class JsonTest extends TestCase
 {
     public function testIsEncoding(): void

@@ -13,6 +13,8 @@ class Json
      * @param mixed $data
      *
      * @throws LogicException If encoding fails
+     *
+     * @return string
      */
     public static function encode($data): string
     {
@@ -36,10 +38,14 @@ class Json
      *
      * @return mixed
      */
-    public static function decode($data)
+    public static function decode(mixed $data): mixed
     {
         if (empty($data)) {
-            return;
+            return null;
+        }
+
+        if (!is_string($data)) {
+            return null;
         }
 
         $result = json_decode($data, true);
@@ -60,24 +66,13 @@ class Json
 
     public static function getLastJsonError(): string
     {
-        switch (json_last_error()) {
-            case JSON_ERROR_DEPTH:
-                return 'Invalid JSON: Maximum stack depth exceeded';
-
-            case JSON_ERROR_STATE_MISMATCH:
-                return 'Invalid JSON: Underflow or modes mismatch';
-
-            case JSON_ERROR_CTRL_CHAR:
-                return 'Invalid JSON: Unexpected control character found';
-
-            case JSON_ERROR_SYNTAX:
-                return 'Invalid JSON: Syntax error';
-
-            case JSON_ERROR_UTF8:
-                return 'Invalid JSON: Malformed UTF-8 characters, possibly incorrectly encoded';
-
-            default:
-                return 'Invalid JSON: Unknown error';
-        }
+        return match (json_last_error()) {
+            JSON_ERROR_DEPTH => 'Invalid JSON: Maximum stack depth exceeded',
+            JSON_ERROR_STATE_MISMATCH => 'Invalid JSON: Underflow or modes mismatch',
+            JSON_ERROR_CTRL_CHAR => 'Invalid JSON: Unexpected control character found',
+            JSON_ERROR_SYNTAX => 'Invalid JSON: Syntax error',
+            JSON_ERROR_UTF8 => 'Invalid JSON: Malformed UTF-8 characters, possibly incorrectly encoded',
+            default => 'Invalid JSON: Unknown error',
+        };
     }
 }

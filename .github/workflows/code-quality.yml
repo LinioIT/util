@@ -6,8 +6,8 @@ on:
   pull_request: ~
 
 jobs:
-  test-php-74:
-    name: Code quality PHP 7.4
+  test-php-80:
+    name: Code quality PHP 8.0
     runs-on: [ubuntu-latest]
     steps:
       - name: Checkout
@@ -16,7 +16,7 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: 7.4
+          php-version: 8.0
           coverage: xdebug
 
       - name: Validate composer.json and composer.lock
@@ -34,8 +34,8 @@ jobs:
       - name: Unit Test
         run: composer phpunit
 
-  test-php-80:
-    name: Code quality PHP 8.0
+  test-php-81:
+    name: Code quality PHP 8.1
     runs-on: [ubuntu-latest]
     steps:
       - name: Checkout
@@ -44,7 +44,7 @@ jobs:
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: 8.0
+          php-version: 8.1
           coverage: xdebug
 
       - name: Validate composer.json and composer.lock
