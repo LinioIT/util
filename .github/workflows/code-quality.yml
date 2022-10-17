@@ -6,6 +6,34 @@ on:
   pull_request: ~
 
 jobs:
+  test-php-80:
+    name: Code quality PHP 8.0
+    runs-on: [ubuntu-latest]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: 8.0
+          coverage: xdebug
+
+      - name: Validate composer.json and composer.lock
+        run: composer validate --strict
+
+      - name: Install dependencies
+        run: composer install --prefer-dist --no-progress
+
+      - name: Lint
+        run: composer lint:check
+
+      - name: PHP Static Analysis
+        run: composer phpstan
+
+      - name: Unit Test
+        run: composer phpunit
+
   test-php-81:
     name: Code quality PHP 8.1
     runs-on: [ubuntu-latest]
