@@ -1,0 +1,7 @@
+services:
+  php:
+    build: .
+    working_dir: /app
+    user: "${UID:-1000}:${GID:-1000}"
+    volumes:
+      - .:/app
