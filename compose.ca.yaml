@@ -1,0 +1,7 @@
+services:
+  php:
+    volumes:
+      - type: bind
+        source: ${CORPORATE_CA_CERT:?Set CORPORATE_CA_CERT to your corporate CA certificate path}
+        target: /tmp/corporate-root-ca.crt
+        read_only: true

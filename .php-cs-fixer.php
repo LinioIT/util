@@ -8,14 +8,15 @@ $config = new PhpCsFixer\Config();
 $config
     ->setRules([
         '@Symfony' => true,
-        '@PHP71Migration:risky' => true,
-        '@PHPUnit60Migration:risky' => true,
+        '@PHP7x1Migration:risky' => true,
+        '@PHPUnit6x0Migration:risky' => true,
         'array_indentation' => true,
         'array_syntax' => ['syntax' => 'short'],
         'blank_line_after_opening_tag' => true,
         'concat_space' => ['spacing' => 'one'],
         'class_attributes_separation' => ['elements' => ['method'=>'one']],
         'declare_strict_types' => true,
+        'global_namespace_import' => false,
         'increment_style' => ['style' => 'post'],
         'list_syntax' => ['syntax' => 'short'],
         'method_argument_space' => ['on_multiline' => 'ensure_fully_multiline'],
@@ -45,10 +46,10 @@ $config
 // special handling of fabbot.io service if it's using too old PHP CS Fixer version
 if (false !== getenv('FABBOT_IO')) {
     try {
-        PhpCsFixer\FixerFactory::create()
+        (new PhpCsFixer\FixerFactory())
             ->registerBuiltInFixers()
             ->registerCustomFixers($config->getCustomFixers())
-            ->useRuleSet(new PhpCsFixer\RuleSet($config->getRules()))
+            ->useRuleSet(new PhpCsFixer\RuleSet\RuleSet($config->getRules()))
         ;
     } catch (PhpCsFixer\ConfigurationException\InvalidConfigurationException $e) {
         $config->setRules([]);

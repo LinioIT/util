@@ -6,6 +6,9 @@ namespace Linio\Component\Util;
 
 use PHPUnit\Framework\TestCase;
 
+/**
+ * @covers \Linio\Component\Util\Inflector
+ */
 class InflectorTest extends TestCase
 {
     public function testIsPascalizingSpinalCase(): void
